@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_relative_layout"
+    tools:context=".MainActivity"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:id="@+id/top"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.4"
+            android:layout_height="wrap_content"
+            android:text="Status : "
+            android:textStyle="bold"
+
+            android:fontFamily="@font/cantata_one"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1.6"
+            android:layout_height="wrap_content"
+            android:text="............."
+            android:id="@+id/main_txt_status"
+
+            android:fontFamily="@font/cantora_one"
+            />
+
+
+    </LinearLayout>
+
+        <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_parent"
+            android:id="@+id/main_scroll"
+            android:layout_below="@+id/top"
+        android:scrollbars="none">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/cantata_one"
+            android:id="@+id/main_txt_view"
+            android:textColor="#3D3B3B"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.5"
+            android:padding="15dp"
+            android:textSize="14sp" />
+
+    </ScrollView>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:id="@+id/bottom_parent"
+       android:layout_alignParentBottom="true">
+       <com.google.android.material.button.MaterialButton
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/main_btn_send_to_transmitter"
+           android:text="Send to transmitter"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/bottom"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_btn_stop"
+            android:backgroundTint="#870411"
+            android:text="Stop Pinging"
+            android:layout_margin="5dp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_btn_send"
+            android:backgroundTint="#04980E"
+            android:text="Start Pinging"
+            android:layout_margin="5dp"
+
+            />
+
+    </LinearLayout>
+   </LinearLayout>
+</RelativeLayout>
