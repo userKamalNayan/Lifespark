@@ -182,7 +182,12 @@ public class MainActivity extends AppCompatActivity implements IRecyclerClickLis
                         });
                         updateTextFile(actualFile.getAbsolutePath(), tempMessage);
                         updateLogOnCloud(tempMessage);
-                        sendPings();
+
+                        if (Common.appMode == Common.TRANSMITTER_MODE) {
+                            // so that when a transmitter gets ping from receiver then we will ping back in response
+                            sendPings();
+                            System.out.println(" appMode = "+Common.appMode+" after send ping");
+                        }
 
                         break;
                     }
@@ -329,15 +334,16 @@ public class MainActivity extends AppCompatActivity implements IRecyclerClickLis
         pingSent++;
 
         log = new StringBuilder(log).append("Pinged Receiver on " + simpleDateFormat.format(dateTime) + "\n").toString();
-        status_txt_view.setText(new StringBuilder(" Ping sent = " + pingSent));
-
-
         String message = new StringBuilder().append("Ping by Transmitter on " + simpleDateFormat.format(dateTime) + "\n").toString();
+
         sendReceive.write(message.getBytes());
+
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 logTextView.setText(log);
+                status_txt_view.setText(new StringBuilder(" Ping sent = " + pingSent));
 
                 scrollView.post(new Runnable() {
                     @Override
