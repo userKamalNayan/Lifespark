@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements IRecyclerClickLis
             public void onClick(View v) {
 
                 sendPings();
-                disposable = Observable.interval(4, TimeUnit.SECONDS)
+                disposable = Observable.interval(10, TimeUnit.SECONDS)
                         .doOnNext(t -> sendPings())
                         .subscribe();
 
