@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements IRecyclerClickLis
                         });
                         updateTextFile(actualFile.getAbsolutePath(), tempMessage);
                         updateLogOnCloud(tempMessage);
-
+                        sendPings();
 
                         break;
                     }
